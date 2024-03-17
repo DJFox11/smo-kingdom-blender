@@ -21,7 +21,7 @@ See the [Blender Wiki](https://docs.blender.org/manual/en/latest/editors/prefere
 4. After installing and enabling the addon in Blender, in the 3D Viewport open the Sidebar by pressing the `N` key, a new `Kingdom Importer` tab should appear. **If the addon panel doesn't appear, make sure you are in Object Mode.**
 
 ## System Reqirements
-This addon supports 64-bit versions of Blender 4.0 or later for Windows, macOS, and Linux. Machines running Apple silicon are also supported. *(Requires further tesing.)* If your computer does run a supported version of Blender and are running into problems, please make an issue in [Issues](https://www.youtube.com/watch?v=dQw4w9WgXcQ).
+This addon supports 64-bit versions of Blender 4.0 or later for Windows, macOS, and Linux. Machines running Apple silicon are also supported. *(Requires further tesing.)* If your computer does run a supported version of Blender and are running into problems, please make an issue in [Issues](https://github.com/DJFox11/smo-kingdom-blender/issues).
 
 ## Uninstall/Updating
 To remove the addon, hit the `Remove` button to uninstall. Then you can install the newest avaliable version.
