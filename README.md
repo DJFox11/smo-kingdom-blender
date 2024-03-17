@@ -27,11 +27,11 @@ This addon supports 64-bit versions of Blender 4.0 or later for Windows, macOS, 
 To remove the addon, hit the `Remove` button to uninstall. Then you can install the newest avaliable version.
 
 ## Special Thanks
-masbmf03 / szs_decompress: Gives the addon the ability to decompress the game's `.szs` files containg the models. 
+masbmf03 / szs_decompress: Gives the addon the ability to decompress the game's `.szs` files containg the models, textures, and materials.\
 https://github.com/masbmf03/szs_compress
 
-MonsterDruide1 / OdysseyDecomp: A very useful tool for managing the game's StageData files.
+MonsterDruide1 / OdysseyDecomp: A very useful tool for managing the game's StageData files.\
 https://github.com/MonsterDruide1/OdysseyDecomp
 
-RenaKunisaki / bfres-importer: A tool used for importing .`bfres` files, with support for models, textures, and materials.
+RenaKunisaki / bfres-importer: A tool used for importing .`bfres` files, with support for models, textures, and materials.\
 https://github.com/RenaKunisaki/bfres_importer
