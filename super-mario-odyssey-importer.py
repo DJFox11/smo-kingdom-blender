@@ -70,7 +70,7 @@ class CheckRomfsOperator(bpy.types.Operator):
     def execute(self, context):
         romfs_folder_path = context.scene.romfs_folder_path
         if os.path.exists(romfs_folder_path):
-            stage_data_path = os.path.join(romfs_folder_path, "StageData")
+            stage_data_path = os.path.join(romfs_folder_path, "ObjectData", "StageData")
 
             if os.path.exists(stage_data_path):
                 context.scene.romfs_checked = True
