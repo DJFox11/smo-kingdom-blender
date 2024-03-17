@@ -14,9 +14,30 @@ bl_info = {
     "tracker_url": "https://github.com/DJFox11/smo-kingdom-blender/issues",
 }
 
+# List of kingdoms
+kingdoms = [
+    "Cascade Kingdom",
+    "Cap Kingdom",
+    "Sand Kingdom",
+    "Lake ingdom",
+    "Wooded Kingdom",
+    "Cloud Kingdom",
+    "Lost Kingdom",
+    "Metro Kingdom",
+    "Snow Kingdom",
+    "Seaside Kingdom",
+    "Luncheon Kingdom",
+    "Ruined Kingdom",
+    "Bowser's Kingdom",
+    "Moon Kingdom",
+    "Mushroom Kingdom",
+    "Dark Side",
+    "Darker Side"
+]
+
 # Define the panel class
 class RomfsCheckPanel(bpy.types.Panel):
-    bl_label = "Super Mario Odyssey Romfs Check"
+    bl_label = "Romfs Check"
     bl_idname = "PT_RomfsCheckPanel"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
@@ -34,6 +55,13 @@ class RomfsCheckPanel(bpy.types.Panel):
         row = layout.row()
         row.operator("addon.check_romfs")
 
+        if context.scene.romfs_checked:
+            col = layout.column()
+            col.label(text="Select Kingdom:")
+            col.prop(context.scene, "selected_kingdom")
+        else:
+            layout.label(text="ObjectData and StageData folders not found.")
+
 # Operator to check romfs folder
 class CheckRomfsOperator(bpy.types.Operator):
     bl_idname = "addon.check_romfs"
@@ -42,14 +70,16 @@ class CheckRomfsOperator(bpy.types.Operator):
     def execute(self, context):
         romfs_folder_path = context.scene.romfs_folder_path
         if os.path.exists(romfs_folder_path):
-            object_data_path = os.path.join(romfs_folder_path, "ObjectData")
             stage_data_path = os.path.join(romfs_folder_path, "StageData")
 
-            if os.path.exists(object_data_path) and os.path.exists(stage_data_path):
+            if os.path.exists(stage_data_path):
+                context.scene.romfs_checked = True
                 self.report({'INFO'}, "ObjectData and StageData folders found in the specified romfs folder.")
             else:
-                self.report({'ERROR'}, "ObjectData or StageData folders not found in the specified romfs folder.")
+                context.scene.romfs_checked = False
+                self.report({'ERROR'}, "ObjectData and StageData folders not found in the specified romfs folder.")
         else:
+            context.scene.romfs_checked = False
             self.report({'ERROR'}, "Specified romfs folder does not exist.")
         return {'FINISHED'}
 
@@ -58,6 +88,18 @@ bpy.types.Scene.romfs_folder_path = bpy.props.StringProperty(
     name="Romfs Folder Path",
     description="Path to the 'romfs' folder containing Super Mario Odyssey dump",
     subtype='DIR_PATH'
+)
+
+# Property to store whether romfs is checked
+bpy.types.Scene.romfs_checked = bpy.props.BoolProperty(
+    name="ROMFS Checked",
+    default=False
+)
+
+# Property to store selected kingdom
+bpy.types.Scene.selected_kingdom = bpy.props.EnumProperty(
+    items=[(kingdom, kingdom, "") for kingdom in kingdoms],
+    name="Selected Kingdom"
 )
 
 # Register the classes
