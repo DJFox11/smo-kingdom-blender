@@ -1,4 +1,5 @@
-# smo-kingdom-blender
+# This repo has been archieved, I am no longer working on this Blender addon. Please see https://github.com/DJFox11/html-yml-reader
+
 A Blender plugin that contains a utility for importing kingdoms from Super Mario Odyssey.
 
 ## Key Features
